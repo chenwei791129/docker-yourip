@@ -9,15 +9,15 @@
 <body>
     <h1>Your IP</h1>
     <p>USER_AGENT：<?php echo $_SERVER['HTTP_USER_AGENT'] ?></p>
+    <p>IP info:</p>
     <ul>
-        <li>HTTP_CLIENT_IP：<?php echo (isset($_SERVER['HTTP_CLIENT_IP']))?$_SERVER['HTTP_CLIENT_IP']:'' ?></li>
-        <li>HTTP_X_FORWARDED_FOR：<?php (isset($_SERVER['HTTP_X_FORWARDED_FOR']))?$_SERVER['HTTP_X_FORWARDED_FOR']:'' ?></li>
-        <li>HTTP_X_FORWARDED：<?php echo (isset($_SERVER['HTTP_X_FORWARDED']))?$_SERVER['HTTP_X_FORWARDED']:'' ?></li>
-        <li>HTTP_X_CLUSTER_CLIENT_IP：<?php echo (isset($_SERVER['HTTP_X_CLUSTER_CLIENT_IP']))?$_SERVER['HTTP_X_CLUSTER_CLIENT_IP']:'' ?></li>
-        <li>HTTP_FORWARDED_FOR：<?php echo (isset($_SERVER['HTTP_FORWARDED_FOR']))?$_SERVER['HTTP_FORWARDED_FOR']:'' ?></li>
-        <li>HTTP_FORWARDED：<?php echo (isset($_SERVER['HTTP_FORWARDED']))?$_SERVER['HTTP_FORWARDED']:'' ?></li>
-        <li>REMOTE_ADDR (Real IP or Proxy IP)：<?php echo (isset($_SERVER['REMOTE_ADDR']))?$_SERVER['REMOTE_ADDR']:'' ?></li>
-        <li>HTTP_VIA (Reference Proxy)：<?php echo (isset($_SERVER['HTTP_VIA']))?$_SERVER['HTTP_VIA']:'' ?></li>
+        <?php
+            $ipHeaders = ['HTTP_CLIENT_IP', 'HTTP_X_FORWARDED_FOR', 'HTTP_X_FORWARDED', 'HTTP_X_CLUSTER_CLIENT_IP', 'HTTP_FORWARDED_FOR', 'HTTP_FORWARDED', 'REMOTE_ADDR', 'HTTP_VIA'];
+            foreach ($ipHeaders as $key)
+                if(isset($_SERVER[$key]) === true) echo '<li>'.$key.'： '.$_SERVER[$key].'</li>';
+
+        ?>
     </ul>
 </body>
 </html>
+
