@@ -12,7 +12,17 @@
     <p>IP info:</p>
     <ul>
         <?php
-            $ipHeaders = ['HTTP_CLIENT_IP', 'HTTP_X_FORWARDED_FOR', 'HTTP_X_FORWARDED', 'HTTP_X_CLUSTER_CLIENT_IP', 'HTTP_FORWARDED_FOR', 'HTTP_FORWARDED', 'REMOTE_ADDR', 'HTTP_VIA'];
+            $ipHeaders = [
+                          'HTTP_CLIENT_IP', 
+                          'HTTP_X_FORWARDED_FOR', 
+                          'HTTP_X_FORWARDED', 
+                          'HTTP_X_CLUSTER_CLIENT_IP', 
+                          'HTTP_FORWARDED_FOR', 
+                          'HTTP_FORWARDED', 
+                          'X-Forwarded-For', 
+                          'REMOTE_ADDR', 
+                          'HTTP_VIA'
+                         ];
             foreach ($ipHeaders as $key)
                 if(isset($_SERVER[$key]) === true) echo '<li>'.$key.'： '.$_SERVER[$key].'</li>';
 
