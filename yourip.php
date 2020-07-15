@@ -38,8 +38,10 @@
                           'HTTP_CF_CONNECTING_IP',
                           'True-Client-IP',
                           'HTTP_CF_VISITOR',
+                          'HTTP_CF_REQUEST_ID',
                           'HTTP_CF_RAY',
-                          'HTTP_CF_IPCOUNTRY'
+                          'HTTP_CF_IPCOUNTRY',
+                          'HTTP_CDN_LOOP'
                          ];
             foreach ($ipHeaders as $key)
                 if(isset($_SERVER[$key])) echo '<li>'.$key.'： '.$_SERVER[$key].'</li>';
