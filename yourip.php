@@ -26,7 +26,7 @@
                           'True-Client-IP'
                          ];
             foreach ($ipHeaders as $key)
-                if(isset($_SERVER[$key]) === true) echo '<li>'.$key.'： '.$_SERVER[$key].'</li>';
+                if(isset($_SERVER[$key])) echo '<li>'.$key.'： '.$_SERVER[$key].'</li>';
 
         ?>
     </ul>
