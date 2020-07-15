@@ -21,7 +21,9 @@
                           'HTTP_FORWARDED', 
                           'X-Forwarded-For', 
                           'REMOTE_ADDR', 
-                          'HTTP_VIA'
+                          'HTTP_VIA',
+                          'CF-Connecting-IP',
+                          'True-Client-IP'
                          ];
             foreach ($ipHeaders as $key)
                 if(isset($_SERVER[$key]) === true) echo '<li>'.$key.'： '.$_SERVER[$key].'</li>';
