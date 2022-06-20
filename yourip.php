@@ -12,42 +12,47 @@
     <p>IP header info:</p>
     <ul>
         <?php
-            $ipHeaders = [
-                          'HTTP_CLIENT_IP', 
-                          'HTTP_X_FORWARDED', 
-                          'HTTP_X_FORWARDED_FOR', 
-                          'HTTP_X_FORWARDED_BY', 
-                          'HTTP_X_CLUSTER_CLIENT_IP', 
-                          'HTTP_X_REAL_IP', 
-                          'HTTP_FORWARDED_FOR', 
-                          'HTTP_FORWARDED', 
-                          'X-Forwarded-For', 
-                          'REMOTE_ADDR', 
-                          'HTTP_VIA'
-                         ];
-            foreach ($ipHeaders as $key)
-                if(isset($_SERVER[$key])) echo '<li>'.$key.'： '.$_SERVER[$key].'</li>';
+        $ipHeaders = [
+            'HTTP_CLIENT_IP',
+            'HTTP_X_FORWARDED',
+            'HTTP_X_FORWARDED_FOR',
+            'HTTP_X_FORWARDED_BY',
+            'HTTP_X_CLUSTER_CLIENT_IP',
+            'HTTP_X_REAL_IP',
+            'HTTP_FORWARDED_FOR',
+            'HTTP_FORWARDED',
+            'X-Forwarded-For',
+            'REMOTE_ADDR',
+            'HTTP_VIA'
+        ];
+        foreach ($ipHeaders as $key)
+            if (isset($_SERVER[$key])) echo '<li>' . $key . '： ' . $_SERVER[$key] . '</li>';
 
         ?>
     </ul>
     <p>CloudFlare header info:</p>
     <ul>
         <?php
-            $ipHeaders = [
-                          'CF-Connecting-IP',
-                          'HTTP_CF_CONNECTING_IP',
-                          'True-Client-IP',
-                          'HTTP_CF_VISITOR',
-                          'HTTP_CF_REQUEST_ID',
-                          'HTTP_CF_RAY',
-                          'HTTP_CF_IPCOUNTRY',
-                          'HTTP_CDN_LOOP'
-                         ];
-            foreach ($ipHeaders as $key)
-                if(isset($_SERVER[$key])) echo '<li>'.$key.'： '.$_SERVER[$key].'</li>';
-
+        $ipHeaders = [
+            'CF-Connecting-IP',
+            'HTTP_CF_CONNECTING_IP',
+            'True-Client-IP',
+            'HTTP_CF_VISITOR',
+            'HTTP_CF_REQUEST_ID',
+            'HTTP_CF_RAY',
+            'HTTP_CF_IPCOUNTRY',
+            'HTTP_CDN_LOOP'
+        ];
+        foreach ($ipHeaders as $key)
+            if (isset($_SERVER[$key])) echo '<li>' . $key . '： ' . $_SERVER[$key] . '</li>';
+        ?>
+    </ul>
+    <p>All Request Headers:</p>
+    <ul>
+        <?php
+        foreach (getallheaders() as $key => $value)
+            echo '<li>' . $key . '： ' . $value . '</li>';
         ?>
     </ul>
 </body>
 </html>
-
