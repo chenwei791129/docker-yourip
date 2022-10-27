@@ -51,7 +51,7 @@
     <ul>
         <?php
         foreach (getallheaders() as $key => $value)
-            echo '<li>' . $key . '： ' . $value . '</li>';
+            echo '<li>' . htmlspecialchars($key) . '： ' . htmlspecialchars($value) . '</li>';
         ?>
     </ul>
 </body>
