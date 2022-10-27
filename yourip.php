@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Your IP</h1>
-    <p>USER_AGENT：<?php echo $_SERVER['HTTP_USER_AGENT'] ?></p>
+    <p>USER_AGENT：<?php echo htmlspecialchars($_SERVER['HTTP_USER_AGENT']) ?></p>
     <p>IP header info:</p>
     <ul>
         <?php
@@ -26,7 +26,7 @@
             'HTTP_VIA'
         ];
         foreach ($ipHeaders as $key)
-            if (isset($_SERVER[$key])) echo '<li>' . $key . '： ' . $_SERVER[$key] . '</li>';
+            if (isset($_SERVER[$key])) echo '<li>' . $key . '： ' . htmlspecialchars($_SERVER[$key]) . '</li>';
 
         ?>
     </ul>
@@ -44,7 +44,7 @@
             'HTTP_CDN_LOOP'
         ];
         foreach ($ipHeaders as $key)
-            if (isset($_SERVER[$key])) echo '<li>' . $key . '： ' . $_SERVER[$key] . '</li>';
+            if (isset($_SERVER[$key])) echo '<li>' . $key . '： ' . htmlspecialchars($_SERVER[$key]) . '</li>';
         ?>
     </ul>
     <p>All Request Headers:</p>
