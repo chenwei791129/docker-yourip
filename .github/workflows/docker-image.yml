@@ -43,6 +43,6 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             BASE_IMAGE=php
-            IMAGE_VERSION=8.1.11-alpine3.16
+            IMAGE_VERSION=8.4.10-alpine3.22
           platforms: |
             linux/amd64,linux/arm64
